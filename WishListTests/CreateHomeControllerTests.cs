@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using WishList.Controllers;
 using Xunit;
 
 namespace WishListTests
@@ -11,6 +12,7 @@ namespace WishListTests
         [Fact(DisplayName = "Create the HomeController @create-the-homecontroller")]
         public void CreateHomeControllerTest()
         {
+            new HomeController();
             // Get appropriate path to file for the current operating system
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Controllers" + Path.DirectorySeparatorChar + "HomeController.cs";
             // Assert Index.cshtml is in the Views/Home folder
