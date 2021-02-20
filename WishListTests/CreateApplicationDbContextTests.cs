@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using WishList.Data;
+using WishList.Models;
 using Xunit;
 
 namespace WishListTests
@@ -15,7 +17,7 @@ namespace WishListTests
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ApplicationDbContext.cs";
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`ApplicationDbContext.cs` was not found in the `Data` folder.");
-
+            new Item();
             var applicationDbContext = TestHelpers.GetUserType("WishList.Data.ApplicationDbContext");
 
             Assert.True(applicationDbContext != null, "`ApplicationDbContext` class was not found, ensure `ApplicationDbContext.cs` contains a `public` class `ApplicationDbContext`.");
@@ -30,6 +32,7 @@ namespace WishListTests
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`ApplicationDbContext.cs` was not found in the `Data` folder.");
 
+            new Item();
             var applicationDbContext = TestHelpers.GetUserType("WishList.Data.ApplicationDbContext");
 
             Assert.True(applicationDbContext != null, "`ApplicationDbContext` class was not found, ensure `ApplicationDbContext.cs` contains a `public` class `ApplicationDbContext`.");
