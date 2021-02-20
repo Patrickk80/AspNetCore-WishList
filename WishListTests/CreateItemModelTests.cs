@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using WishList.Models;
 using Xunit;
 
 namespace WishListTests
@@ -33,6 +34,7 @@ namespace WishListTests
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`ApplicationDbContext.cs` was not found in the `Data` folder.");
 
+            new Item();
             var applicationDbContext = TestHelpers.GetUserType("WishList.Data.ApplicationDbContext");
 
             Assert.True(applicationDbContext != null, "`ApplicationDbContext` class was not found, ensure `ApplicationDbContext.cs` contains a `public` class `ApplicationDbContext`.");
