@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
+using WishList.Controllers;
+using WishList.Models;
 using Xunit;
 
 namespace WishListTests
@@ -83,6 +85,7 @@ namespace WishListTests
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`ItemController.cs` was not found in the `Controllers` folder.");
 
+            new Item();
             var controllerType = TestHelpers.GetUserType("WishList.Controllers.ItemController");
 
             Assert.True(controllerType != null, "`ItemController.cs` was found, but it appears it does not contain a `public` class `ItemController`.");
@@ -152,7 +155,8 @@ namespace WishListTests
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Controllers" + Path.DirectorySeparatorChar + "ItemController.cs";
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`ItemController.cs` was not found in the `Controllers` folder.");
-
+            
+            new Item();
             var controllerType = TestHelpers.GetUserType("WishList.Controllers.ItemController");
 
             Assert.True(controllerType != null, "`ItemController.cs` was found, but it appears it does not contain a `public` class `ItemController`.");
